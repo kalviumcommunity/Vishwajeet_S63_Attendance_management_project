@@ -1,45 +1,47 @@
-# Attendance Management System
+package com.school;
 
-## Project Overview
-A simple Java-based project for learning purposes.
+/**
+ * Represents a student with attendance tracking.
+ */
+public class Student {
+    private final int id;
+    private final String name;
+    private final boolean[] attendance; // true for present, false for absent
 
-## How to Compile and Run (Part 1)
-- Navigate to project root.
-- Compile:
-  bash
-  javac AttendanceSystem/src/com/school/Main.java
-  
-- Run:
-  bash
-  java -cp AttendanceSystem/src com.school.Main
-  
+    public Student(int id, String name, int sessions) {
+        this.id = id;
+        this.name = name;
+        this.attendance = new boolean[sessions];
+    }
 
-## Part 2 Updates
-- *New classes*: Student.java, Course.java in AttendanceSystem/src/com/school/.
-- *Main.java* now demonstrates arrays of Student and Course, enrollment, and simple attendance marking.
+    public int getId() { return id; }
+    public String getName() { return name; }
 
-### Compile (Part 2)
-bash
-javac AttendanceSystem/src/com/school/Student.java \
-      AttendanceSystem/src/com/school/Course.java \
-      AttendanceSystem/src/com/school/Main.java
+    /**
+     * Mark attendance for a specific session.
+     * @param session the session index (0-based)
+     * @param present true if present, false if absent
+     */
+    public void markAttendance(int session, boolean present) {
+        if (session >= 0 && session < attendance.length) {
+            attendance[session] = present;
+        }
+    }
 
+    /**
+     * Calculate attendance percentage.
+     * @return attendance percentage
+     */
+    public double getAttendancePercentage() {
+        int presentCount = 0;
+        for (boolean present : attendance) {
+            if (present) presentCount++;
+        }
+        return attendance.length > 0 ? (double) presentCount / attendance.length * 100 : 0;
+    }
 
-### Run
-bash
-java -cp AttendanceSystem/src com.school.Main
-
-
-### Expected Output (example)
-
-Welcome to Attendance Management System!
-
-Course Rosters:
-CS101 - Intro to CS (3/ 5)
-  1. Student{id=1, name='Alice', attendance%=100.0}
-  2. Student{id=2, name='Bob', attendance%=0.0}
-  3. Student{id=3, name='Charlie', attendance%=100.0}
-
-MATH201 - Discrete Math (2/ 5)
-  1. Student{id=1, name='Alice', attendance%=100.0}
-  2. Student{id=3, name='Charlie', attendance%=100.0}
+    @Override
+    public String toString() {
+        return "Student{id=" + id + ", name='" + name + "', attendance%=" + getAttendancePercentage() + "}";
+    }
+}
