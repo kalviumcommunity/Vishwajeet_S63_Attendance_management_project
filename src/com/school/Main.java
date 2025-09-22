@@ -9,14 +9,23 @@ public class Main {
 
         Student student1 = new Student("Alice Wonderland");
         Student student2 = new Student("Bob The Builder");
+        Student student3 = new Student("Charlie Brown");
+        Student student4 = new Student("Diana Prince");
+
         Course course1 = new Course("Intro to Programming");
+        Course course2 = new Course("Data Structures");
+        Course course3 = new Course("Web Development");
 
         System.out.println("\nRegistered Students:");
         student1.displayDetails();
         student2.displayDetails();
+        student3.displayDetails();
+        student4.displayDetails();
 
         System.out.println("\nAvailable Courses:");
         course1.displayDetails();
+        course2.displayDetails();
+        course3.displayDetails();
 
         // --- Attendance Recording ---
         System.out.println("\n--- Attendance Recording ---");
