@@ -27,13 +27,16 @@ This is a 10-part code-along project to build a console-based school attendance 
 ## Part 3: Constructor Initialization & Auto-ID Generation
 - Implemented parameterized constructors in `Student` and `Course` classes for object initialization.
 - Utilized `private static` member variables for automatic and unique ID generation.
+- Student IDs start from 1 and auto-increment (1, 2, 3, 4...)
+- Course IDs start from 101 and auto-increment with "C" prefix (C101, C102, C103...)
 - Demonstrated the use of the `this` keyword to distinguish instance variables from constructor parameters.
 - Changed `Course`'s `courseId` to `int` for simpler auto-generation and updated its display.
-- Updated `Main.java` to use constructors and show ID progression.
+- Updated `Main.java` to use constructors and show ID progression with multiple instances.
+- Removed `setDetails()` methods as constructors now handle initialization.
 
 ### How to Run (ensure this is up-to-date)
 1. Navigate to the project root directory.
-2. Compile: `javac src/com/school/Student.java src/com/school/Course.java src/com/school/Main.java` (or `javac src/com/school/*.java`)
+2. Compile: `javac src/com/school/*.java` (compiles all Java files in the directory)
 3. Run: `java -cp src com.school.Main`
 
 ## Part 4: Data Encapsulation & Attendance Recording Validation
