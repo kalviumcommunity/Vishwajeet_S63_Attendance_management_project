@@ -1,47 +1,28 @@
 package com.school;
 
-/**
- * Represents a student with attendance tracking.
- */
 public class Student {
-    private final int id;
-    private final String name;
-    private final boolean[] attendance; // true for present, false for absent
+    private static int nextStudentIdCounter = 1;
 
-    public Student(int id, String name, int sessions) {
-        this.id = id;
-        this.name = name;
-        this.attendance = new boolean[sessions];
+    private int studentId;    // Made private
+    private String name;      // Made private
+
+    // Constructor
+    public Student(String name) {
+        this.studentId = nextStudentIdCounter++; // Auto-increment and assign ID
+        this.name = name;                      // Assign name
     }
 
-    public int getId() { return id; }
-    public String getName() { return name; }
-
-    /**
-     * Mark attendance for a specific session.
-     * @param session the session index (0-based)
-     * @param present true if present, false if absent
-     */
-    public void markAttendance(int session, boolean present) {
-        if (session >= 0 && session < attendance.length) {
-            attendance[session] = present;
-        }
+    // Getter for studentId
+    public int getStudentId() {
+        return studentId;
     }
 
-    /**
-     * Calculate attendance percentage.
-     * @return attendance percentage
-     */
-    public double getAttendancePercentage() {
-        int presentCount = 0;
-        for (boolean present : attendance) {
-            if (present) presentCount++;
-        }
-        return attendance.length > 0 ? (double) presentCount / attendance.length * 100 : 0;
+    // Getter for name
+    public String getName() {
+        return name;
     }
 
-    @Override
-    public String toString() {
-        return "Student{id=" + id + ", name='" + name + "', attendance%=" + getAttendancePercentage() + "}";
+    public void displayDetails() {
+        System.out.println("Student ID: " + this.studentId + ", Name: " + this.name);
     }
 }
