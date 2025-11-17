@@ -1,15 +1,14 @@
 package com.school;
 
-public class Student {
+public class Student extends Person {
     private static int nextStudentIdCounter = 1;
 
     private int studentId;    // Made private
-    private String name;      // Made private
 
     // Constructor
     public Student(String name) {
+        super(name);
         this.studentId = nextStudentIdCounter++; // Auto-increment and assign ID
-        this.name = name;                      // Assign name
     }
 
     // Getter for studentId
@@ -17,11 +16,10 @@ public class Student {
         return studentId;
     }
 
-    // Getter for name
-    public String getName() {
-        return name;
-    }
+    // Getter for name (inherited from Person)
+    // public String getName() { return name; } // Already in Person
 
+    @Override
     public void displayDetails() {
         System.out.println("Student ID: " + this.studentId + ", Name: " + this.name);
     }

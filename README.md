@@ -47,4 +47,19 @@ This is a 10-part code-along project to build a console-based school attendance 
 1. Navigate to the project root directory.
 2. Compile: `javac src/com/school/*.java` (or list individual files including `AttendanceRecord.java`)
 3. Run: `java -cp src com.school.Main`
+## Part 7: Polymorphism and Object References
+- Introduced a `Person` base class with `name` field and `displayDetails()` method.
+- Modified `Student` to extend `Person`, updated constructor to call `super(name)`.
+- Created `Teacher` and `Staff` classes extending `Person`, each with additional fields (`subject` for Teacher, `role` for Staff) and overridden `displayDetails()` methods.
+- Updated `AttendanceRecord` to use `Student` and `Course` objects instead of IDs, modified constructor, getters, and `displayRecord()` to use object methods; added `toDataString()` for file saving.
+- Created `FileStorageService` with `saveData(List<Student>, String filename)` to write student data to file.
+- Modified `Main.java` to add `displaySchoolDirectory(List<Person>)` method, create `Teacher` and `Staff` objects, add all to `ArrayList<Person>`, call `displaySchoolDirectory`, update `AttendanceRecord` creation to pass objects, and add logic to filter and save `Student` instances.
+- Demonstrated polymorphism in the school directory display and updated attendance log with richer information.
+
+### How to Run
+1. Navigate to the project root directory.
+2. Compile: `javac src/com/school/*.java`
+3. Run: `java -cp src com.school.Main`
+4. Observe polymorphic calls in the “School Directory” section, updated “Attendance Log” display, and data saved to "students.txt".
+
 # Updated on Mon, Sep 22, 2025 10:51:15 AM
