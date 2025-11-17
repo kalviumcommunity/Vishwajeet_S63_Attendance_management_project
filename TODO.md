@@ -10,4 +10,4 @@
 - [x] Update README.md: Add section for Part 7.
 - [x] Compile all .java files.
 - [x] Run Main.java and observe output.
-- [ ] Git: checkout part-07, add, commit, push, create PR.
+- [x] Git: checkout part-07, add, commit, push, create PR.
